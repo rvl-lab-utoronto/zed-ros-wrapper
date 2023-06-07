@@ -1,22 +1,30 @@
-LATEST CHANGES
-==============
+CHANGELOG
+=========
 
-2022-04-26
+2023-04-27
 ----------
-- Add Plane Detection. See [ZED Documentation](https://www.stereolabs.com/docs/ros/plane_detection/)
+- Add 1080p for ZED X and ZED X Mini
 
-2022-03-30
+2023-03-31
 ----------
-- Fix wrong TF broadcasting when calling the `set_pose`, `reset_tracking`, and `reset_odometry` services. Now the initial odometry is coherent with the new starting point.
+- Support for ZED SDK v4.0
+- Remove parameter `object_detection.body_fitting`
+- Remove parameter `depth.sensing_mode`
+- Remove parameter `video.extrinsic_in_camera_frame`
+- Skeleton Tracking is no more available. Migrate to ROS 2 Wrapper if you need it
+- `sensors` and `object_detection` parameters are now in `common.yaml`
+- Move parameters `general.resolution` and `general.grab_frame_rate` to cameras yaml files to support the different configurations on ZED X and ZED X Mini.
+- Remove support for ROS Melodic that reached EOL
 
-2022-03-28
-----------
+v3.8.x
+------
+- Fix the frame links of barometer, magnetometer, and temperature sensors for ZED2i
 - Add parameter `sensors/max_pub_rate` to set the maximum publishing frequency of sensors data
 - Improve Sensors thread
-
-2022-03-16
------------
-- Fix the frame links of barometer, magnetometer, and temperature sensors for ZED2i
+- Fix wrong TF broadcasting when calling the `set_pose`, `reset_tracking`, and `reset_odometry` services. Now the initial odometry is coherent with the new starting point.
+- Add Plane Detection. See [ZED Documentation](https://www.stereolabs.com/docs/ros/plane_detection/)
+- Fix TF timestamp issue in SVO mode
+- Fix units for Atmospheric pressure data. Now the value is correctly published in `Pascal` according to the [topic specification](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/FluidPressure.html).
 
 v3.7.x
 ---------
